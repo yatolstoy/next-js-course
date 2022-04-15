@@ -1,12 +1,13 @@
 import type { NextPage } from 'next'
 import { useState } from 'react';
 import { Button, Htag, P, Rating, Tag } from '../components';
+import { Layout } from '../layout/Layout';
 
 const Home: NextPage = () => {
   const [rating, changeRating] = useState(4);
 
   return (
-    <>
+    <Layout>
       <Htag tag="h1">Заголовок</Htag>
       <Button appearance='primary' arrow='right'>Примари кнопка</Button>
       <Button appearance='ghost'  arrow='right'>Секондари кнопка</Button>
@@ -17,7 +18,7 @@ const Home: NextPage = () => {
       <Tag size='md' color='ghost'>Some Text</Tag>
       <Tag size='sm' color='primary'>Some Text</Tag>
       <Rating rating={rating} isChangable={true} changeRating={ changeRating } />
-    </>
+    </Layout>
   )
 }
 
