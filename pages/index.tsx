@@ -1,9 +1,10 @@
 import type { NextPage } from 'next'
-import { Button, Htag, P, Tag } from '../components';
-
-import styles from '../styles/Home.module.css'
+import { useState } from 'react';
+import { Button, Htag, P, Rating, Tag } from '../components';
 
 const Home: NextPage = () => {
+  const [rating, changeRating] = useState(4);
+
   return (
     <>
       <Htag tag="h1">Заголовок</Htag>
@@ -15,6 +16,7 @@ const Home: NextPage = () => {
       <Tag size='sm' color='green'>Some Text</Tag>
       <Tag size='md' color='ghost'>Some Text</Tag>
       <Tag size='sm' color='primary'>Some Text</Tag>
+      <Rating rating={rating} isChangable={true} changeRating={ changeRating } />
     </>
   )
 }
