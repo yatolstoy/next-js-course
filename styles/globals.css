@@ -23,10 +23,11 @@ a {
 	--black: #3B434E;
 	--white: #FFF;
 	--primary: #7653FC;
-	--primary-hover: #6c4de7;
+	--primary-hover: #6C4DE7;
 	--green: #1DC37E;
 	--red: #FC836D;
 	--green-light: #C8F8E4;
 	--gray: #B3C0D9;
 	--gray-light: #F3F3F3;
+	--gray-dark: #787D85;
 }
