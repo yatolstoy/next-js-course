@@ -9,7 +9,7 @@
 		"footer footer footer footer";
 
 	min-height: 100vh;
-	gap: 0 30px;
+	gap: 40px 30px;
 }
 
 .header {
@@ -36,7 +36,7 @@
 			"header"
 			"main"
 			"footer";
-	}
+}
 
 	.header {
 		display: block;
@@ -44,5 +44,9 @@
 
 	.sidebar {
 		display: none !important;
+	}
+
+	.main {
+		padding: 0 15px;
 	}
 }
