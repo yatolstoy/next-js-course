@@ -6,7 +6,7 @@ body {
 	color: var(--black);
 	background: var(--gray-light);
 
-	font-family: "Noto Sans", sans-serif;
+	font-family: var(--font-family);
 }
 
 a {
@@ -20,6 +20,7 @@ a {
 }
 
 :root {
+	--font-family: "Noto Sans", sans-serif;
 	--black: #3B434E;
 	--white: #FFF;
 	--primary: #7653FC;

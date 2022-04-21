@@ -1,6 +1,6 @@
 import type { GetStaticProps } from 'next'
 import { useState } from 'react';
-import { Button, Htag, P, Rating, Tag } from '../components';
+import { Button, Htag, Input, P, Rating, Tag, Textarea } from '../components';
 import { withLayout } from '../layout/Layout';
 import axios from 'axios';
 import { MenuItem } from '../interfaces/menu.interface';
@@ -23,7 +23,8 @@ const Home: React.FC<HomeProps> = ({menu}) => {
       <ul>
         {menu.map((el, i) => (<li key={i}>{el._id.secondCategory}</li>))}
       </ul>
-      
+      <Input style={{display: 'block'}} placeholder='test' />
+      <Textarea placeholder='testing' />
     </>
   )
 }
