@@ -29,14 +29,14 @@
 	grid-area: footer;
 }
 
-@media (max-width: 780px) {
+@media (max-width: 885px) {
 	.wrapper {
 		grid-template-columns: minmax(320px, 1fr);
 		grid-template-areas:
 			"header"
 			"main"
 			"footer";
-}
+	}
 
 	.header {
 		display: block;
