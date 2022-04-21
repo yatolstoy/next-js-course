@@ -8,3 +8,4 @@ export * from "./hhData/HHData";
 export * from "./Sort/Sort";
 export * from "./Input/Input";
 export * from "./Textarea/Textarea";
+export * from "./Serach/Search";
