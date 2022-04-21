@@ -1,4 +1,4 @@
-import { Card, HHData, Htag, Sort, Tag } from '../../components';
+import { HHData, Htag, Product, Sort, Tag } from '../../components';
 import { TopPageComponentProps } from './TopPageComponent.props';
 import styles from './TopPageComponent.module.css'
 import { TopLevelCategory } from '../../interfaces/page.interface';
@@ -22,7 +22,7 @@ export const TopPageComponent = ({page, products, firstCategory}: TopPageCompone
 				<Sort sort={sort} setSort={setSort} />
 			</div>
 			<div>
-				{sortedProducts && sortedProducts.map(p => (<div key={p._id}>{p.title}</div>))}
+				{sortedProducts && sortedProducts.map(p => (<Product product={p} key={p._id}></Product>))}
 			</div>
 
 			{ firstCategory === TopLevelCategory.Courses && 
