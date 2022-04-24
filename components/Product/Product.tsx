@@ -8,15 +8,24 @@ import { Button } from '../Button/Button';
 import { declOfNum, priceRu } from '../../helpers/helpers';
 import { Divider } from '../Divider/Divider';
 import Image from 'next/image'
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Review } from '../Review/Review';
 import { ReviewForm } from '../ReviewForm/ReviewForm';
 
 export const Product = ({product, className, ...props}: ProductProps): JSX.Element => {
 	const [isReviewOpened, setIsReviewOpened] = useState<boolean>(false)
-	
+	const reviewRef = useRef<HTMLDivElement>(null);
+
+	const scrollToReview = () => {
+		setIsReviewOpened(true);
+		reviewRef.current?.scrollIntoView({
+			behavior: 'smooth',
+			block: 'center'
+		})
+	};
+
 	return (
-		<>
+		<div className={cn(className)} {...props}>
 		<Card className={styles.product}>
 			<div className={styles.logo}>
 				<Image 
@@ -42,7 +51,7 @@ export const Product = ({product, className, ...props}: ProductProps): JSX.Eleme
 			</div>
 			<div className={styles['price-title']}>цена</div>
 			<div className={styles['credit-title']}>кредит</div>
-			<div className={styles['rate-title']}> {product.reviewCount} {declOfNum(product.reviewCount, ['отзыв', 'отзыва', 'отзывов'])}</div>
+			<div className={styles['rate-title']}><a href="#ref" onClick={() => scrollToReview()}>{product.reviewCount} {declOfNum(product.reviewCount, ['отзыв', 'отзыва', 'отзывов'])}</a></div>
 			<div className={styles.description}> {product.description}</div>
 			<Divider className={styles.hr}></Divider>
 			<div className={styles.feature}>
@@ -89,7 +98,7 @@ export const Product = ({product, className, ...props}: ProductProps): JSX.Eleme
 		<Card color={'blue'} className={cn(styles.reviews, {
 			[styles.opened]: isReviewOpened,
 			[styles.closed]: !isReviewOpened
-		})}>
+		})} ref={reviewRef}>
 			{
 				product.reviews.map(review => (
 					<div key={review._id}>
@@ -100,6 +109,6 @@ export const Product = ({product, className, ...props}: ProductProps): JSX.Eleme
 			}
 			<ReviewForm productId={product._id}/>
 		</Card>
-		</>
+		</div>
 	)
 }
