@@ -1,3 +1,7 @@
+.wrapper {
+	position: relative;
+}
+
 .star {
 	box-sizing: content-box;
 	padding: 0 2px;
@@ -9,4 +13,18 @@
 
 .editable {
 	cursor: pointer;
+}
+
+.error svg {
+	stroke: var(--red);
+}
+
+.error-text {
+	position: absolute;
+	bottom: -16px;
+	left: 0;
+
+	color: var(--red);
+
+	font-size: 12px;
 }

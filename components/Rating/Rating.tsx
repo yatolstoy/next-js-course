@@ -4,7 +4,7 @@ import styles from './Rating.module.css';
 import StarIcon from './Star.svg'
 import { useEffect, useState, KeyboardEvent, forwardRef, ForwardedRef } from 'react';
 
-export const Rating = forwardRef(({rating, changeRating, isChangable = false, ...props}: RatingProps, ref: ForwardedRef<HTMLDivElement>): JSX.Element => {
+export const Rating = forwardRef(({rating, changeRating, isChangable = false, error, ...props}: RatingProps, ref: ForwardedRef<HTMLDivElement>): JSX.Element => {
 	const [ratingArray, changeRatingArray] = useState<JSX.Element[]>(new Array(5).fill(<></>));
 
 	useEffect(() => {
@@ -20,7 +20,7 @@ export const Rating = forwardRef(({rating, changeRating, isChangable = false, ..
 						key={i}
 						className={cn(styles.star, [{
 							[styles.filled]: currentRating > i,
-							[styles.editable]: isChangable,
+							[styles.editable]: isChangable
 						}])}
 						onMouseEnter={() => changeDisplay(i + 1)}
 						onMouseLeave={() => changeDisplay(rating)}
@@ -56,8 +56,11 @@ export const Rating = forwardRef(({rating, changeRating, isChangable = false, ..
 	}
 
 	return (
-		<div {...props} ref={ref}>
+		<div className={cn(styles.wrapper, {
+			[styles.error]: error
+		})} {...props} ref={ref}>
 			{ ratingArray.map((el, i) => (<span key={i}>{el}</span>)) }
+			{error && <span className={styles['error-text']}>{ error.message }</span>}
 		</div>
 	)
 });
