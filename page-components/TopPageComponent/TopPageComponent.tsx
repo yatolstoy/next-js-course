@@ -6,10 +6,12 @@ import CheckIcon from './check.svg'
 import { SortEnum } from '../../components/Sort/Sort.props';
 import { useEffect, useReducer } from 'react';
 import { sortReducer } from '../../components/Sort/sort.reducer';
+import { useScrollY } from '../../hooks/useScrollY';
 
 export const TopPageComponent = ({page, products, firstCategory}: TopPageComponentProps):JSX.Element => {
 	const [{products: sortedProducts, sort}, dispatchSort] = useReducer(sortReducer, {products, sort: SortEnum.Rating});
-	
+	const y = useScrollY()
+
 	const setSort = (sort: SortEnum) => (
 		dispatchSort({type: sort})
 	)
@@ -26,7 +28,7 @@ export const TopPageComponent = ({page, products, firstCategory}: TopPageCompone
 				<Sort sort={sort} setSort={setSort} />
 			</div>
 			<div>
-				{sortedProducts && sortedProducts.map(p => (<Product product={p} key={p._id}></Product>))}
+				{sortedProducts && sortedProducts.map(p => (<Product layout product={p} key={p._id}></Product>))}
 			</div>
 
 			{ firstCategory === TopLevelCategory.Courses && 
