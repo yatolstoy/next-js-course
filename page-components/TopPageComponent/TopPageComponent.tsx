@@ -1,4 +1,4 @@
-import { HHData, Htag, Product, Sort, Tag } from '../../components';
+import { HHData, Htag, Product, Sort, Tag, Up } from '../../components';
 import { TopPageComponentProps } from './TopPageComponent.props';
 import styles from './TopPageComponent.module.css'
 import { TopLevelCategory } from '../../interfaces/page.interface';
@@ -78,7 +78,7 @@ export const TopPageComponent = ({page, products, firstCategory}: TopPageCompone
 				</>
 
 			}
+		{<Up/>}
 		</div>
-
 	);
 }
