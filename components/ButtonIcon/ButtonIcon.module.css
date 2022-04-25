@@ -1,8 +1,4 @@
 .button {
-	position: fixed;
-	right: 40px;
-	bottom: 40px;
-
 	width: 40px;
 	height: 40px;
 
@@ -17,7 +13,7 @@
 	background: var(--primary);
 }
 
-.primary svg{
+.primary svg * {
 	fill: var(--white);
 }
 
@@ -29,10 +25,10 @@
 	background: var(--white);
 }
 
-.white svg{
+.white svg * {
 	fill: var(--primary);
 }
 
 .button .white :hover {
-	background: var(--gray-light);
+	background: var(--primary);
 }
