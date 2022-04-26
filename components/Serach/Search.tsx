@@ -28,8 +28,19 @@ export const Search = ({children, className, ...props}: SearchProps): JSX.Elemen
 
 	return (
 		<div className={cn(className, styles.search)} {...props}>
-			<Input className={styles.input} placeholder='Поиск...' value={search} onChange={(e) => setSearch(e.target.value)} onKeyDown={handleKeydown}/>
-			<Button appearance='primary' className={styles.button} onClick={goToSearch}>
+			<Input 
+				className={styles.input} 
+				placeholder='Поиск...' 
+				value={search} 
+				onChange={(e) => setSearch(e.target.value)} 
+				onKeyDown={handleKeydown}
+			/>
+			<Button 
+				appearance='primary' 
+				className={styles.button} 
+				onClick={goToSearch}
+				aria-label="Искать по сайту"
+			>
 				<SearchIcon />
 			</Button>
 		</div>
