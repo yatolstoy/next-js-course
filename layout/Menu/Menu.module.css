@@ -28,10 +28,10 @@
 	text-transform: uppercase;
 
 	color: var(--gray-dark);
+	outline-offset: -2px;
 
 	font-size: 12px;
 	font-weight: 300;
-	line-height: 16px;
 }
 
 .second-block {
@@ -54,10 +54,10 @@
 	cursor: pointer;
 
 	color: var(--gray-dark);
+	outline-offset: -2px;
 
 	font-size: 14;
 	font-weight: 500;
-	line-height: 19px;
 }
 
 .third-level:hover,

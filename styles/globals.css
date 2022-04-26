@@ -23,13 +23,13 @@ a {
 	--font-family: "Noto Sans", sans-serif;
 	--black: #3B434E;
 	--white: #FFF;
-	--primary: #7653FC;
+	--primary: #623CF3;
 	--primary-hover: #6C4DE7;
-	--green: #1DC37E;
-	--red: #FC836D;
+	--green: #005C36;
+	--red: #FF5739;
 	--red-light: #FFB2A4;
 	--green-light: #C8F8E4;
 	--gray: #B3C0D9;
 	--gray-light: #F3F3F3;
-	--gray-dark: #787D85;
+	--gray-dark: #6E737A;
 }

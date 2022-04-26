@@ -12,7 +12,7 @@ import axios from 'axios';
 import { API } from '../../helpers/api';
 import { useState } from 'react';
 
-export const ReviewForm = ({productId, className, ...props}: ReviewFormProps): JSX.Element => {
+export const ReviewForm = ({productId, isOpened, className, ...props}: ReviewFormProps): JSX.Element => {
 	const {register, control, handleSubmit, formState: { errors }, reset} = useForm<IReviewForm>();
 	const [isSuccess, setIsSuccess] = useState<boolean>(false);
 	const [error, setError] = useState<string>();
@@ -31,6 +31,8 @@ export const ReviewForm = ({productId, className, ...props}: ReviewFormProps): J
 		}
 	}
 
+	const tabIndex = () => isOpened ? 0 : -1;
+
 	return (
 		<form onSubmit={handleSubmit(onSubmit)}>
 			<div className={cn(styles['review-form'], className)} {...props}>
@@ -42,7 +44,9 @@ export const ReviewForm = ({productId, className, ...props}: ReviewFormProps): J
 							value: true, 
 							message: 'Заполните имя'
 						}
-					})} />
+					})} 
+					tabIndex={tabIndex()}
+				/>
 				<Input 
 					placeholder={'Заголовок отзыва'}
 					error={errors.title}
@@ -52,7 +56,9 @@ export const ReviewForm = ({productId, className, ...props}: ReviewFormProps): J
 							message: 'Заполните заголовок'
 						}
 					})}
-					className={styles.title}  />
+					className={styles.title}
+					tabIndex={tabIndex()}
+				/>
 
 				<div className={styles.rating}>
 					<span>Оценка:</span>
@@ -66,7 +72,14 @@ export const ReviewForm = ({productId, className, ...props}: ReviewFormProps): J
 						}
 					}}
 						render={({field}) => (
-							<Rating isChangable changeRating={field.onChange} ref={field.ref} rating={field.value} error={errors.rating}/>
+							<Rating 
+								isChangable 
+								changeRating={field.onChange} 
+								ref={field.ref} 
+								rating={field.value} 
+								error={errors.rating}
+								tabIndex={tabIndex()}
+							/>
 						)}
 						/>
 				</div>
@@ -79,9 +92,11 @@ export const ReviewForm = ({productId, className, ...props}: ReviewFormProps): J
 							value: true, 
 							message: 'Заполните текст отзыва'
 						}
-					})}/>
+					})}
+					tabIndex={tabIndex()}
+				/>
 				<div className={styles.submit}>
-					<Button appearance={'primary'}>Отправить</Button>
+					<Button appearance={'primary'} tabIndex={tabIndex()}>Отправить</Button>
 					<span className={styles.info}>*Перед публикацией отзыв пройдёт предварительную проверку</span>
 				</div>
 			</div>

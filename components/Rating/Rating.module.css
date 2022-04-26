@@ -3,11 +3,13 @@
 }
 
 .star {
+	display: inline-block;
+
 	box-sizing: content-box;
 	padding: 0 2px;
 }
 
-.filled {
+.filled svg {
 	fill: var(--primary);
 }
 
