@@ -32,8 +32,8 @@ export const TopPageComponent = ({page, products, firstCategory}: TopPageCompone
 					>{sortedProducts.length}</Tag>}
 				<Sort sort={sort} setSort={setSort} />
 			</div>
-			<div>
-				{sortedProducts && sortedProducts.map(p => (<Product layout product={p} key={p._id}></Product>))}
+			<div role='list'>
+				{sortedProducts && sortedProducts.map(p => (<Product role='listitem' layout product={p} key={p._id}></Product>))}
 			</div>
 
 			{ firstCategory === TopLevelCategory.Courses && 

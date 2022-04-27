@@ -44,6 +44,12 @@ export const Rating = forwardRef(({rating, changeRating, isChangable = false, er
 					onMouseEnter={() => changeDisplay(i + 1)}
 					onMouseLeave={() => changeDisplay(rating)}
 					onClick={() => onClick(i+1)}
+					role={isChangable ? 'slider' : ''}
+					aria-valuenow={rating}
+					aria-valuemax={5}
+					aria-valuemin={0}
+					aria-label={isChangable ? 'Укажите рейтинг' : ('рейтинг ' + rating)}
+					aria-invalid={!!error}
 				>
 					<StarIcon/>
 				</span>
@@ -99,7 +105,7 @@ export const Rating = forwardRef(({rating, changeRating, isChangable = false, er
 			[styles.error]: error
 		})} {...props} ref={ref}>
 			{ ratingArray.map((el, i) => (<span key={i}>{el}</span>)) }
-			{error && <span className={styles['error-text']}>{ error.message }</span>}
+			{error && <span role="alert" className={styles['error-text']}>{ error.message }</span>}
 		</div>
 	);
 });

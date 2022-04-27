@@ -27,7 +27,7 @@ export const Search = ({children, className, ...props}: SearchProps): JSX.Elemen
 	}
 
 	return (
-		<div className={cn(className, styles.search)} {...props}>
+		<form className={cn(className, styles.search)} {...props} role="search">
 			<Input 
 				className={styles.input} 
 				placeholder='Поиск...' 
@@ -43,6 +43,6 @@ export const Search = ({children, className, ...props}: SearchProps): JSX.Elemen
 			>
 				<SearchIcon />
 			</Button>
-		</div>
+		</form>
 	)
 }

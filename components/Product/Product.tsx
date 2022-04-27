@@ -49,12 +49,23 @@ const ProductComponent = forwardRef(({product, className, ...props}: ProductProp
 			</div>
 			<div className={styles.title}>{product.title}</div>
 			<div className={styles.price}>
-				{priceRu(product.price)}
-				{product.oldPrice && <Tag className={styles['old-price']} color={'green'} size={'sm'}>{priceRu(product.price - product.oldPrice)}</Tag>}
+				<span><span className="visually-hidden">цена</span>{priceRu(product.price)}</span>
+				{
+					product.oldPrice && 
+					<Tag className={styles['old-price']} color={'green'} size={'sm'} aria-hidden={true}>
+						<span className="visually-hidden">скидка</span>
+						{priceRu(product.price - product.oldPrice)}
+					</Tag>
+				}
 			</div>
 
-			<div className={styles.credit}>{priceRu(product.credit)}/<span>мес.</span></div>
+			<span className={styles.credit}>
+				<span className="visually-hidden">в кредит </span>
+				{priceRu(product.credit)}/<span>мес.</span>
+			</span>
+
 			<div className={styles.rating}>
+				<span className="visually-hidden">Рейтинг {product.reviewAvg ?? product.initialRating} звёзд</span>
 				<Rating rating={product.reviewAvg ?? product.initialRating} />
 			</div>
 			<div className={styles.tags}>
@@ -62,8 +73,8 @@ const ProductComponent = forwardRef(({product, className, ...props}: ProductProp
 					product.categories.map(c => (<Tag key={c} color='ghost' className={styles.tag}>{c}</Tag>))
 				}
 			</div>
-			<div className={styles['price-title']}>цена</div>
-			<div className={styles['credit-title']}>кредит</div>
+			<div className={styles['price-title']} aria-hidden={true}>цена</div>
+			<div className={styles['credit-title']} aria-hidden={true}>кредит</div>
 			<div className={styles['rate-title']}><a href="#ref" onClick={() => scrollToReview()}>{product.reviewCount} {declOfNum(product.reviewCount, ['отзыв', 'отзыва', 'отзывов'])}</a></div>
 			<div className={styles.description}> {product.description}</div>
 			<Divider className={styles.hr}></Divider>
@@ -104,6 +115,7 @@ const ProductComponent = forwardRef(({product, className, ...props}: ProductProp
 					appearance={'ghost'} 
 					arrow={ isReviewOpened ? 'down' : 'right' }
 					onClick={() => setIsReviewOpened(!isReviewOpened)}
+					aria-expanded={isReviewOpened}
 					>Читать отзывы</Button>
 			</div>
 
