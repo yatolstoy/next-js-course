@@ -20,7 +20,7 @@ export const Search = ({children, className, ...props}: SearchProps): JSX.Elemen
 		})
 	}
 
-	const handleKeydown = (e: KeyboardEvent) => {
+	const handleKeydown = (e: React.KeyboardEvent<HTMLInputElement>) => {
 		if(e.key === 'Enter') {
 			goToSearch();
 		}
@@ -33,7 +33,7 @@ export const Search = ({children, className, ...props}: SearchProps): JSX.Elemen
 				placeholder='Поиск...' 
 				value={search} 
 				onChange={(e) => setSearch(e.target.value)} 
-				onKeyDown={handleKeydown}
+				onKeyDown={(e:React.KeyboardEvent<HTMLInputElement>) => handleKeydown(e)}
 			/>
 			<Button 
 				appearance='primary' 

@@ -12,7 +12,7 @@ import Head from 'next/head';
 
 const TopPage: React.FC<TopPageProps> = ({ menu, page, products, firstCategory }) => {
   return (
-    <> 
+    <> {page && products && <>
       <Head>
         <title>{page.metaTitle}</title>
         <meta name="description" content={page.metaDescription} />
@@ -23,7 +23,9 @@ const TopPage: React.FC<TopPageProps> = ({ menu, page, products, firstCategory }
       <TopPageComponent 
         firstCategory={firstCategory} 
         page={page} 
-        products={products} />
+        products={products} /> 
+    </>}
+
     </>
   )
 }

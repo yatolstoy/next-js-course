@@ -8,6 +8,7 @@
     "debug": "SET NODE_OPTIONS='--inspect' && next dev",
     "build": "next build",
     "start": "next start",
+    "export": "next export",
     "lint": "stylelint \"**/*.css\" --fix"
   },
   "dependencies": {
