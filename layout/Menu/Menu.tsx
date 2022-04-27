@@ -6,17 +6,18 @@ import styles from './Menu.module.css';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { firstLevelMenu } from '../../helpers/helpers';
-import { m, motion } from 'framer-motion'
+import { m, motion, useReducedMotion } from 'framer-motion'
 
 export const Menu = (): JSX.Element => {
 	const {menu, setMenu, firstCategory} = useContext(AppContext)
 	const router = useRouter();
 	const [announce, setAnnounce] = useState<'closed' | 'opened' | undefined>();
+	const shouldReduceMotion = useReducedMotion();
 
 	const variants = {
 		visible: {
 			marginBottom: 20,
-			transition: {
+			transition: shouldReduceMotion ? {} : {
 				staggerChildren: 0.1,
 				type: 'spring'
 			}
@@ -35,7 +36,7 @@ export const Menu = (): JSX.Element => {
 			}
 		},
 		hidden: {
-			opacity: 0,
+			opacity: shouldReduceMotion ? 1 : 0,
 			height: "0px"
 		}
 	}
