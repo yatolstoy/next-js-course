@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@main
       - name: Publish to Registry
-        uses: elgohr/Publish-Docker-Github-Action@main
+        uses: elgohr/Publish-Docker-Github-Action@master
         with:
           registry: docker.pkg.github.com
           name: docker.pkg.github.com/yatolstoy/next-js-course/next-js-course
