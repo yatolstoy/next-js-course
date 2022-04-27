@@ -40,7 +40,7 @@ export const TopPageComponent = ({page, products, firstCategory}: TopPageCompone
 
 			{ firstCategory === TopLevelCategory.Courses && 
 			<>
-				<div className={styles.hhTitle}>
+				<div className={styles["hh-title"]}>
 					<Htag tag={'h2'}>Вакансии {page.category}</Htag>
 					<Tag color='red' size='md'>hh.ru</Tag>
 				</div>

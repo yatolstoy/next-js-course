@@ -8,13 +8,23 @@ import { ProductModel } from '../../interfaces/product.interface';
 import { firstLevelMenu } from '../../helpers/helpers';
 import { TopPageComponent } from '../../page-components/index'
 import { API } from '../../helpers/api';
+import Head from 'next/head';
 
 const TopPage: React.FC<TopPageProps> = ({ menu, page, products, firstCategory }) => {
-
   return (
-    <div>
-      <TopPageComponent firstCategory={firstCategory} page={page} products={products} />
-    </div>
+    <> 
+      <Head>
+        <title>{page.metaTitle}</title>
+        <meta name="description" content={page.metaDescription} />
+        <meta property="og:title" content={page.metaTitle} />
+        <meta name="og:description" content={page.metaDescription} />
+        <meta name="og:type" content="article" />
+      </Head>
+      <TopPageComponent 
+        firstCategory={firstCategory} 
+        page={page} 
+        products={products} />
+    </>
   )
 }
 
