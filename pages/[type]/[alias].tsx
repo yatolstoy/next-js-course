@@ -9,10 +9,15 @@ import { firstLevelMenu } from '../../helpers/helpers';
 import { TopPageComponent } from '../../page-components/index'
 import { API } from '../../helpers/api';
 import Head from 'next/head';
+import { Error404 } from '../404';
 
 const TopPage: React.FC<TopPageProps> = ({ menu, page, products, firstCategory }) => {
+  if(!page || !products) {
+    return <Error404/>;
+  }
+  
   return (
-    <> {page && products && <>
+    <> 
       <Head>
         <title>{page.metaTitle}</title>
         <meta name="description" content={page.metaDescription} />
@@ -23,9 +28,7 @@ const TopPage: React.FC<TopPageProps> = ({ menu, page, products, firstCategory }
       <TopPageComponent 
         firstCategory={firstCategory} 
         page={page} 
-        products={products} /> 
-    </>}
-
+        products={products} />
     </>
   )
 }

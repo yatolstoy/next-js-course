@@ -7,7 +7,7 @@
     "dev": "next dev",
     "debug": "SET NODE_OPTIONS='--inspect' && next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "cross-env NODE_ENV=production next start",
     "export": "next export",
     "lint": "stylelint \"**/*.css\" --fix"
   },
@@ -26,6 +26,7 @@
     "@types/node": "17.0.23",
     "@types/react": "17.0.39",
     "@types/react-dom": "18.0.0",
+    "cross-env": "^7.0.3",
     "eslint": "8.13.0",
     "eslint-config-next": "12.1.4",
     "eslint-plugin-react-hooks": "^4.3.0",

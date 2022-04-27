@@ -5,9 +5,12 @@ import { withLayout } from '../layout/Layout';
 import axios from 'axios';
 import { MenuItem } from '../interfaces/menu.interface';
 import { API } from '../helpers/api';
+import Error from 'next/error'
 
 const Home: React.FC<HomeProps> = ({menu}) => {
   const [rating, changeRating] = useState(4);
+
+  return <Error statusCode={404}/>
 
   return (
     <>

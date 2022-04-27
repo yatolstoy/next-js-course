@@ -21,12 +21,13 @@ const Layout = ({children, ...props}: LayoutProps): JSX.Element => {
 
 	return (
 		<div className={styles.wrapper} {...props}>
-			<a tabIndex={1} 
-			onFocus={() => setIsSkipLinkDisplayed(true)}
-			className={cn(styles.skiplink, {
-				[styles.displayed]: isSkipLinkDisplayed
-			})}
-			onKeyDown={skipContentAction}
+			<a 
+				tabIndex={0} 
+				onFocus={() => setIsSkipLinkDisplayed(true)}
+				className={cn(styles.skiplink, {
+					[styles.displayed]: isSkipLinkDisplayed
+				})}
+				onKeyDown={skipContentAction}
 			>Сразу к содержанию</a>
 			<Header className={styles.header} />
 			<Sidebar className={styles.sidebar} />
